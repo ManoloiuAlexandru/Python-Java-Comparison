@@ -9,7 +9,7 @@ There are 3 parts in this repo:
 The main reason that there are 2 servers, one with Java and one with Python, is so you can see how to
 solve a problem in python and in java.
 
-***Note: The react server is there so we have a front-end part the Java and the Python server solve the same problems***
+***Note: The react server is there so we have a front-end part that we will use to send data from the user to the Java and the Python server in order to solve the same problems***
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
