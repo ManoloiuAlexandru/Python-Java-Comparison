@@ -12,7 +12,7 @@ class Server:
 @app.route('/first/firstproblem', methods=['POST'])
 def checked_data():
     result = request.json
-    print(result)
+    print(result.get("name"), "has age:", result.get("age"))
     return result
 
 
