@@ -15,5 +15,5 @@ solve a problem in python and in java.
 
 ## First problem:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a name and the age of a person show on screen: 'name' has age:'age'.
-Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a name and the age of a person show on screen: 'name' has age:'age'.<br>
+Solution:[Java](Javaserver/ITSchool/src/main/java/demoschool/ITSchool/services/FirstProblemServices.java)
