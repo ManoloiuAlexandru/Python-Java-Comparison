@@ -17,4 +17,4 @@ solve a problem in python and in java.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a name and the age of a person show on screen: 'name' has age:'age'.<br>
 Solution in Java:[Java](Javaserver/ITSchool/src/main/java/demoschool/ITSchool/services/FirstProblemServices.java)<br>
-Solution in Python:[Python](Pythonserver/AllPythonProblems.py)<br>
+Solution in Python:[Python](Pythonserver/problems/responses/FirstProblem.py)<br>
