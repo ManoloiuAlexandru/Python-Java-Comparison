@@ -1,6 +1,7 @@
 from flask import Flask, json, request, redirect, url_for, render_template
 
 from ITschool_projects.problems.responses.FirstProblem import first_problem_solution
+from ITschool_projects.problems.responses.SecondProblem import second_problem_solution
 
 app = Flask(__name__)
 
@@ -9,6 +10,13 @@ class Server:
     def __init__(self, ip, port):
         self.ip = ip
         self.port = port
+
+
+@app.route('/first/secondproblem', methods=['POST'])
+def second_problem():
+    result = request.json
+    solution = second_problem_solution(result.get('side1'), result.get('side2'))
+    return redirect(url_for('show_result', date=solution))
 
 
 @app.route('/first/firstproblem', methods=['POST'])

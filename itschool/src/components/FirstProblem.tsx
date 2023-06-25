@@ -33,7 +33,7 @@ export default function FirstProblem(this: any) {
                     </label>
                     <label>
                         Age:
-                        <input type="text" value={age} name="armorType" onChange={handleChangeAge} />
+                        <input type="text" value={age} name="Age" onChange={handleChangeAge} />
                     </label>
                     <input type="submit" value="Print Result" />
                 </form>
