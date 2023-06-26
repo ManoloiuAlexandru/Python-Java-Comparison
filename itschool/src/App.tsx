@@ -31,9 +31,9 @@ export default function App() {
                 <button onClick={navigateToSecondProblem}>SecondProblem</button>
                 <Routes>
                     <Route path="/" element={<RenderHome />} />
-                    <Route path="/firstproblem" element={<RenderFirstProblem />} />
-                    <Route path="/result" element={<RenderResult />} />
-                    <Route path="/secondproblem" element={<RenderSecondProblem />} />
+                    <Route path="/firstproblem/*" element={<RenderFirstProblem />} />
+                    <Route path="/result/*" element={<RenderResult />} />
+                    <Route path="/secondproblem/*" element={<RenderSecondProblem />} />
                 </Routes>
             </div>
         </div>

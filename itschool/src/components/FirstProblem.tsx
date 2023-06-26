@@ -1,11 +1,18 @@
 import React, { useCallback, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import logo from './logo.svg';
+import Result from './Result';
 const baseURL = "http://127.0.0.1:8080/first/firstproblem";
+
 export default function FirstProblem(this: any) {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
+    const navigate = useNavigate();
+    const navigateToResult = () => {
 
+        navigate('/result');
+    };
     const triggerAPI = useCallback(async () => {
         const res = await axios.post(baseURL, {
             "name": name,
@@ -13,8 +20,9 @@ export default function FirstProblem(this: any) {
         });
     }, [name, age]);
     const PrintName = useCallback((e: any) => {
-        e.preventDefault()
+        e.preventDefault();
         triggerAPI();
+        navigateToResult();
     }, [triggerAPI])
 
     const handleChangeName = useCallback((event: any) => {
@@ -37,7 +45,13 @@ export default function FirstProblem(this: any) {
                     </label>
                     <input type="submit" value="Print Result" />
                 </form>
+                <Routes>
+                    <Route path="/result" element={<RenderResult />} />
+                </Routes>
             </div>
         </div>
     );
+}
+function RenderResult() {
+    return <Result />
 }

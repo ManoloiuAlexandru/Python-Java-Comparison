@@ -1,11 +1,16 @@
 import React, { useCallback, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from "axios";
-import logo from './logo.svg';
+import Result from './Result';
 const baseURL = "http://127.0.0.1:8080/first/secondproblem";
 export default function SecondProblem(this: any) {
     const [side1, setSide1] = useState("");
     const [side2, setSide2] = useState("");
+    const navigate = useNavigate();
+    const navigateToResult = () => {
 
+        navigate('/result');
+    };
     const triggerAPI = useCallback(async () => {
         const res = await axios.post(baseURL, {
             "side1": Number(side1),
@@ -15,6 +20,7 @@ export default function SecondProblem(this: any) {
     const PrintName = useCallback((e: any) => {
         e.preventDefault()
         triggerAPI();
+        navigateToResult();
     }, [triggerAPI])
 
     const handleChangeSide1 = useCallback((event: any) => {
@@ -38,6 +44,12 @@ export default function SecondProblem(this: any) {
                     <input type="submit" value="Print Result" />
                 </form>
             </div>
+            <Routes>
+                <Route path="/result" element={<RenderResult />} />
+            </Routes>
         </div>
     );
+}
+function RenderResult() {
+    return <Result />
 }

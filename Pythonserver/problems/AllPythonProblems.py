@@ -12,8 +12,12 @@ class Server:
         self.port = port
 
 
+solution = None
+
+
 @app.route('/first/secondproblem', methods=['POST'])
 def second_problem():
+    global solution
     result = request.json
     solution = second_problem_solution(result.get('side1'), result.get('side2'))
     return redirect(url_for('show_result', date=solution))
@@ -21,6 +25,7 @@ def second_problem():
 
 @app.route('/first/firstproblem', methods=['POST'])
 def first_problem():
+    global solution
     result = request.json
     solution = first_problem_solution(result.get('name'), result.get('age'))
     return redirect(url_for('show_result', date=solution))
@@ -28,8 +33,7 @@ def first_problem():
 
 @app.route('/result')
 def show_result():
-    data = request.args.get('date', None)
-    return render_template('result.html', date=data)
+    return {"result": solution}
 
 
 if __name__ == '__main__':
