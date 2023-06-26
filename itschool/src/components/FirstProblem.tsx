@@ -22,7 +22,6 @@ export default function FirstProblem(this: any) {
     const PrintName = useCallback((e: any) => {
         e.preventDefault();
         triggerAPI();
-        navigateToResult();
     }, [triggerAPI])
 
     const handleChangeName = useCallback((event: any) => {
@@ -43,8 +42,9 @@ export default function FirstProblem(this: any) {
                         Age:
                         <input type="text" value={age} name="Age" onChange={handleChangeAge} />
                     </label>
-                    <input type="submit" value="Print Result" />
+                    <input type="submit" value="Send data to server"  />
                 </form>
+                <button onClick={navigateToResult}>Result</button>
                 <Routes>
                     <Route path="/result" element={<RenderResult />} />
                 </Routes>

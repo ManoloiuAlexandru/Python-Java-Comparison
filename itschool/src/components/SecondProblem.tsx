@@ -20,7 +20,6 @@ export default function SecondProblem(this: any) {
     const PrintName = useCallback((e: any) => {
         e.preventDefault()
         triggerAPI();
-        navigateToResult();
     }, [triggerAPI])
 
     const handleChangeSide1 = useCallback((event: any) => {
@@ -41,9 +40,10 @@ export default function SecondProblem(this: any) {
                         Side2:
                         <input type="number" value={side2} name="Side2" onChange={handleChangeSide2} />
                     </label>
-                    <input type="submit" value="Print Result" />
+                    <input type="submit" value="Send data to server" />
                 </form>
             </div>
+            <button onClick={navigateToResult}>Result</button>
             <Routes>
                 <Route path="/result" element={<RenderResult />} />
             </Routes>
