@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 export default function FirstProblem(this: any) {
-    const [users, setUsers] = useState([])
+    const [data, setUsers] = useState([])
     const fetchUserData = () => {
         fetch("http://127.0.0.1:8080/result")
             .then(response => {
@@ -13,10 +13,10 @@ export default function FirstProblem(this: any) {
     useEffect(() => {
         fetchUserData()
     }, [])
-    if (!users) return null;
+    if (!data) return null;
     return (
         <div>
-            {JSON.stringify(users)}
+            {JSON.stringify(data)}
         </div>
     );
 }
