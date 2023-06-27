@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-export default function FirstProblem(this: any) {
+export default function Result(this: any) {
     const [data, setUsers] = useState([])
     const fetchUserData = () => {
         fetch("http://127.0.0.1:8080/result")
