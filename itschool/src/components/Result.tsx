@@ -16,7 +16,7 @@ export default function Result(this: any) {
     if (!data) return null;
     return (
         <div>
-            {JSON.stringify(data)}
+            {Object.values(data)}
         </div>
     );
 }

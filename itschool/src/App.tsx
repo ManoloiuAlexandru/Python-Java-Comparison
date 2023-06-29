@@ -8,6 +8,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Result from './components/Result';
 import SecondProblem from './components/SecondProblem';
 import MultipleChoice from './components/MultipleChoice';
+import CurrencyConvertor from './components/CurrencyConvertor';
 
 export default function App() {
     const navigate = useNavigate();
@@ -28,6 +29,10 @@ export default function App() {
 
         navigate('/multiplechoice');
     };
+    const navigateToCurrencyConvertor = () => {
+
+        navigate('/currencyconvertor');
+    };
     return (
         <div>
             <div>
@@ -35,12 +40,14 @@ export default function App() {
                 <button onClick={navigateToFirstProblem}>FirstProblem</button>
                 <button onClick={navigateToSecondProblem}>SecondProblem</button>
                 <button onClick={navigateToMultipleChoice}>MultipleChoice</button>
+                <button onClick={navigateToCurrencyConvertor}>CurrencyConvertor</button>
                 <Routes>
                     <Route path="/" element={<RenderHome />} />
                     <Route path="/firstproblem/*" element={<RenderFirstProblem />} />
                     <Route path="/result/*" element={<RenderResult />} />
                     <Route path="/secondproblem/*" element={<RenderSecondProblem />} />
                     <Route path="/multiplechoice/*" element={<RenderMultipleChoice />} />
+                    <Route path="/currencyconvertor/*" element={<RenderCurrencyConvertor />} />
                 </Routes>
             </div>
         </div>
@@ -60,4 +67,7 @@ function RenderSecondProblem() {
 }
 function RenderMultipleChoice() {
     return <MultipleChoice />
+}
+function RenderCurrencyConvertor() {
+    return <CurrencyConvertor />
 }

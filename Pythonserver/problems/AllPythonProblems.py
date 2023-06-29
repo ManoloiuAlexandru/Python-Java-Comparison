@@ -3,6 +3,7 @@ The Flask server
 """
 from flask import Flask, json, request, redirect, url_for, render_template
 
+from ITschool_projects.problems.responses.CurrencyConvertor import currency_converting
 from ITschool_projects.problems.responses.FirstProblem import first_problem_solution
 from ITschool_projects.problems.responses.SecondProblem import second_problem_solution
 
@@ -21,6 +22,7 @@ class Server:
 
 
 solution = None  # global variable that we use to safe the result of the problems
+currency_dict = {}
 
 
 @app.route('/first/secondproblem', methods=['POST'])
@@ -46,6 +48,34 @@ def first_problem():
     global solution
     result = request.json
     solution = first_problem_solution(result.get('name'), result.get('age'))
+    return redirect(url_for('show_result', date=solution))
+
+
+@app.route('/currencys')
+def get_currency():
+    """
+    Function that returns the dictionary of the currency exchange for RON
+    :return:a dictionary with the exchange rates for RON
+    """
+    global currency_dict
+    currency_dict = currency_converting()
+    return currency_dict
+
+
+@app.route('/currencyconvertor', methods=['POST'])
+def currency_convertor():
+    """
+    Function that converts the amount you send to the amount you want the function returns the
+    result in string form. The result is obtained by doing by multiplying the amount with the
+    exchange rate:currencyToConvert/currencyToConvertTo
+    :return: a string representing the result
+    """
+    global solution
+    result = request.json
+    solution = result.get("currency") + " " + str(round(float(currency_dict.get(result.get("currency"))) / float(
+        currency_dict.get(result.get("currencyToConvertTo"))) * float(result.get("amount")),
+                                                        2)) + " = " + result.get(
+        "currencyToConvertTo")
     return redirect(url_for('show_result', date=solution))
 
 
