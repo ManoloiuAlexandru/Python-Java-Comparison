@@ -28,5 +28,7 @@ Solution in Python:[Python](Pythonserver/problems/responses/SecondProblem.py)<br
 ## Currency Convertor:
 
 Currency Convertor <br>
+Solution in Java:[Java](Javaserver/ITSchool/src/main/java/demoschool/ITSchool/services/CurrencyConvertorServices.java)<br>
 Solution in Python:[Python](Pythonserver/problems/responses/CurrencyConvertor.py)<br>
 
+***Note: For this problem the Java server needs to have the python server up in order to get the exchange rates.***
