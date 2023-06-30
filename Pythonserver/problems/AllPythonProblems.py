@@ -3,6 +3,7 @@ The Flask server
 """
 from flask import Flask, json, request, redirect, url_for, render_template
 
+from ITschool_projects.problems.responses.AccountManagement import add_data_to_db
 from ITschool_projects.problems.responses.CurrencyConvertor import currency_converting
 from ITschool_projects.problems.responses.FirstProblem import first_problem_solution
 from ITschool_projects.problems.responses.SecondProblem import second_problem_solution
@@ -76,6 +77,18 @@ def currency_convertor():
         currency_dict.get(result.get("currencyToConvertTo"))) * float(result.get("amount")),
                                                         2)) + " = " + result.get(
         "currencyToConvertTo")
+    return redirect(url_for('show_result', date=solution))
+
+
+@app.route('/accountsmanagemnt', methods=['POST'])
+def accounts_management():
+    """
+    Function that sends data from the front end part to the data base in order to create the account
+    :return: a message to show if data was send
+    """
+    global solution
+    result = request.json
+    solution = add_data_to_db(result)
     return redirect(url_for('show_result', date=solution))
 
 

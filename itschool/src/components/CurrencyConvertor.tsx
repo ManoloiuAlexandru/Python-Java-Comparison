@@ -12,7 +12,7 @@ export default function CurrencyConvertor(this: any) {
     const [currency, setCurrency] = useState("");
     const [data, setUsers] = React.useState<any>();
     const fetchUserData = () => {
-        fetch("http://127.0.0.1:8081/currencys")
+        fetch("http://127.0.0.1:8080/currencys")
             .then(response => {
                 return response.json()
             })
