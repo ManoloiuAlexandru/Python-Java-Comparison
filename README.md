@@ -32,3 +32,10 @@ Solution in Java:[Java](Javaserver/ITSchool/src/main/java/demoschool/ITSchool/se
 Solution in Python:[Python](Pythonserver/problems/responses/CurrencyConvertor.py)<br>
 
 ***Note: For this problem the Java server needs to have the python server up in order to get the exchange rates.***
+
+## Accounts Manager:
+
+Store accounts informations like: name of the account, password, email, etc. You are able to add accounts to different websites but you can't use
+the same name or email.</br>
+Solution in Java:[Java](Javaserver/ITSchool/src/main/java/demoschool/ITSchool/services/AccountManagementServices.java)<br>
+Solution in Python:[Python](Pythonserver/problems/responses/AccountManagement.py)<br>
