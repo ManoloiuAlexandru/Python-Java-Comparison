@@ -74,7 +74,6 @@ public class AccountManagementServices {
 						rs.getString(rs.findColumn("recoveryEmail")));
 				result.add(accountData);
 			}
-			System.out.println(result);
 			return result;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -88,7 +87,6 @@ public class AccountManagementServices {
 		 * 
 		 * @returns True if the account is in the database or False otherwise
 		 */
-		System.out.println("checkname");
 		for (AccountData account : getDataFromDB())
 			if (accountName.equals(account.getAccountName()))
 				return true;
@@ -101,7 +99,6 @@ public class AccountManagementServices {
 		 * 
 		 * @returns True if the account is in the database or False otherwise
 		 */
-		System.out.println("checkemail");
 		for (AccountData account : getDataFromDB())
 			if (accountEmail.equals(account.getAccountEmail()))
 				return true;
@@ -117,12 +114,7 @@ public class AccountManagementServices {
 		 */
 		for (AccountData account : getDataFromDB())
 			if (accountData.getWebsite().equals(account.getWebsite())) {
-				System.out.println("checkwebsite");
 				for (AccountData accountFromWebsite : getDataFromDBWithSpecificWebsite(accountData.getWebsite())) {
-					System.out.println("-----------");
-					System.out.println(accountFromWebsite.getAccountName());
-					System.out.println(accountData.getAccountName());
-					System.out.println("-----------");
 					if (accountFromWebsite.getAccountName().equals(accountData.getAccountName())
 							|| accountFromWebsite.getAccountEmail().equals(accountData.getAccountEmail()))
 						return false;
@@ -150,7 +142,6 @@ public class AccountManagementServices {
 		 * 
 		 * @returns Massage
 		 */
-		System.out.print(accountData);
 		if (checkData(accountData)) {
 			try (Statement stmt = dbConnection().createStatement();) {
 				stmt.executeUpdate(
