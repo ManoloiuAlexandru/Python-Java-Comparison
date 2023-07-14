@@ -1,9 +1,11 @@
 # Python-Java-Comparison
 In this repo you will find different problems in Java and Python so you can see the differences between them.
 There are 2 main projects here:
+
+## First Project:
 The Java vs Python code examples are where you can find code differences but they are not solving any problem. They are just to show the way of writing code.
 
-Second project:
+## Second project:
 There are 3 files in this repo:
   - The Python server
   - The React server
